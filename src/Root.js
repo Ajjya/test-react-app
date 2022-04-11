@@ -11,4 +11,4 @@ function Root(){
   </Provider>
 }
 
-export default Root
+export default Root;
