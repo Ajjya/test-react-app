@@ -1,11 +1,9 @@
-export const getTodo = async () => {
+export const getBlog = async () => {
   const req = {
-    method: 'GET',
-  };
+    method: 'GET'
+  }
   try {
-    // const result = await axios.get(url);
-
-    const url = "https://jsonplaceholder.typicode.com/todos";
+    const url = "https://jsonplaceholder.typicode.com/posts";
     const resp = await fetch(
       url,
       req
@@ -14,6 +12,7 @@ export const getTodo = async () => {
     const result = await resp.json();
     
     return result;
+    
   } catch (error) {
     console.error(error);
   }

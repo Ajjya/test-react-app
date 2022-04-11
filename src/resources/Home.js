@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 // import axios from 'axios';
 import logo from './logo.svg';
-import './App.css';
 import { connect } from "react-redux";
 import {startRotate, stopRotate} from 'store/actions/rotateActions';
 import {getTodo} from 'services/api/todoApi';
+import Header from 'components/Header';
 
-function App(props) {
+function Home(props) {
   const {rotating, stopAction, startAction} = props;
 
   const [todoList, setTodoList] = useState([]);
@@ -16,19 +16,18 @@ function App(props) {
       try{
         const results = await getTodo();
         setTodoList(results);
-        
       } catch (e) {
         console.log(e);
       }
     }
 
     fetchMyAPI();
-
   }, []);
 
   return (
     <div className="App">
-      <header className="App-header">
+      <Header />
+      <div className="App-header">
         <img src={logo} className={"App-logo" +  (rotating ? '' : ' App-logo-paused')} alt="logo" />
         <a
           className="App-link"
@@ -49,7 +48,7 @@ function App(props) {
             )
           }
         </ul>
-      </header>
+      </div>
     </div>
   );
 }
@@ -64,5 +63,5 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
 

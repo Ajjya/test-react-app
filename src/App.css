@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -18,8 +20,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,4 +44,47 @@
 .todolist{
   text-align: left;
   font-size: 15px;
+}
+header{
+  padding-top: 10px;
+}
+
+header ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+header ul li{
+  list-style-type: none;
+  margin: 0 20px;
+  display: inline-block;
+}
+
+header ul li a{
+  color: white;
+  text-decoration: none;
+}
+
+ul.blog{
+  list-style-type: none;
+  margin: 0;
+  padding: 0 20px;
+}
+
+.blog li{
+  list-style-type: none;
+  margin: 0;
+  border-bottom: 1px solid white;
+  color: white;
+  padding-bottom: 15px;
+}
+
+.formWrap{
+  color: white;
+}
+
+label{
+  min-width: 87px;
+  display: inline-block;
 }
