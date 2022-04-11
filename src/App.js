@@ -16,7 +16,7 @@ function App(props) {
       try{
         const results = await getTodo();
         setTodoList(results);
-        console.log(results);
+        
       } catch (e) {
         console.log(e);
       }
@@ -42,14 +42,14 @@ function App(props) {
             rotating ? 'Stop rotation' : 'Start rotation'
           }
         </a>
+        <ul className='todolist'>
+          {
+            todoList.map(item => 
+              <li key={item.id}>{item.title}</li>
+            )
+          }
+        </ul>
       </header>
-      <div>
-        {
-          todoList.map(item => {
-            
-          })
-        }
-      </div>
     </div>
   );
 }

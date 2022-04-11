@@ -40,3 +40,8 @@
     transform: rotate(360deg);
   }
 }
+
+.todolist{
+  text-align: left;
+  font-size: 15px;
+}
