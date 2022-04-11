@@ -1,33 +1,28 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 // import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
-// import { connect } from "react-redux";
-// import {startRotate, stopRotate} from 'store/actions/rotateActions';
-// import {getTodo} from 'services/api/todoApi';
+import { connect } from "react-redux";
+import {startRotate, stopRotate} from 'store/actions/rotateActions';
+import {getTodo} from 'services/api/todoApi';
 
 function App(props) {
-  // const {rotating, stopAction, startAction} = props;
-  const rotating = true;
-  const stopAction = () => {
+  const {rotating, stopAction, startAction} = props;
 
-  }
-  const startAction = () => {
-
-  }
+  const [todoList, setTodoList] = useState([]);
 
   useEffect(()=>{
-    console.log('useEffect');
-    // async function fetchMyAPI() {
-    //   try{
-    //     const results = await getTodo();
-    //     console.log(results);
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-    // }
+    async function fetchMyAPI() {
+      try{
+        const results = await getTodo();
+        setTodoList(results);
+        console.log(results);
+      } catch (e) {
+        console.log(e);
+      }
+    }
 
-    // fetchMyAPI();
+    fetchMyAPI();
 
   }, []);
 
@@ -48,20 +43,26 @@ function App(props) {
           }
         </a>
       </header>
+      <div>
+        {
+          todoList.map(item => {
+            
+          })
+        }
+      </div>
     </div>
   );
 }
 
-// const mapStateToProps = state => ({
-//   ...state
-// });
+const mapStateToProps = state => ({
+  ...state
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   startAction: () => dispatch(startRotate),
-//   stopAction: () => dispatch(stopRotate)
-// });
+const mapDispatchToProps = dispatch => ({
+  startAction: () => dispatch(startRotate),
+  stopAction: () => dispatch(stopRotate)
+});
 
 
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
-export default App;
