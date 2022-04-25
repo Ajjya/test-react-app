@@ -44,7 +44,9 @@ function Home(props) {
         <ul className='todolist'>
           {
             todoList.map(item => 
-              <li key={item.id}>{item.title}</li>
+              <li key={item.id}>
+                {item.title}
+                </li>
             )
           }
         </ul>
